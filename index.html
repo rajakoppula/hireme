@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Raja Koppula",
+      "url": "https://www.linkedin.com/in/rajakoppula/",
+      "image": "https://i.ibb.co/r2nfd03z/Whats-App-Image-2025-04-13-at-1-51-08-AM.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/rajakoppula/"
+      ],
+      "jobTitle": "Entrepreneur, Software Developer, Growth Strategist, SEO Expert",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Self-Employed"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vijayawada",
+        "addressRegion": "AP",
+        "postalCode": "521101",
+        "addressCountry": "IN"
+      },
+      "email": "mailto:rajakoppula227@yahoo.com",
+      "telephone": "+919700336346",
+      "knowsAbout": ["SEO", "Growth Strategy", "LLM", "AEO", "SaaS", "Affiliate Marketing", "Software Development", "Lead Generation"]
+    }
+    </script>
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827; /* Dark background */
         }
-        /* Style for the timeline line */
         .timeline-line {
             position: absolute;
             left: 50%;
@@ -23,79 +51,70 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background-color: #374151; /* Gray-700 */
+            background-color: #374151;
         }
-        /* Style for timeline items */
         .timeline-item {
             position: relative;
             width: 50%;
-            padding-bottom: 2.5rem; /* 40px */
+            padding-bottom: 2.5rem;
         }
-        /* Position items on the left or right of the timeline */
         .timeline-item:nth-child(odd) {
             left: 0;
-            padding-right: 2.5rem; /* 40px */
+            padding-right: 2.5rem;
             text-align: right;
         }
         .timeline-item:nth-child(even) {
             left: 50%;
-            padding-left: 2.5rem; /* 40px */
+            padding-left: 2.5rem;
             text-align: left;
         }
-        /* Style for the dot on the timeline */
         .timeline-dot {
             position: absolute;
             top: 0;
-            width: 1.5rem; /* 24px */
-            height: 1.5rem; /* 24px */
-            background-color: #f9fafb; /* Gray-50 */
-            border: 4px solid #4f46e5; /* Indigo-600 */
-            border-radius: 9999px; /* Full circle */
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #f9fafb;
+            border: 4px solid #4f46e5;
+            border-radius: 9999px;
             z-index: 10;
+            transition: transform 0.3s ease;
+        }
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
         }
         .timeline-item:nth-child(odd) .timeline-dot {
-            right: -0.875rem; /* Adjust for dot size */
-            transform: translateX(0);
+            right: -0.875rem;
         }
         .timeline-item:nth-child(even) .timeline-dot {
-            left: -0.875rem; /* Adjust for dot size */
-            transform: translateX(0);
+            left: -0.875rem;
         }
-        /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
             .timeline-line {
-                left: 0.75rem; /* 12px */
+                left: 0.75rem;
                 transform: translateX(0);
             }
-            .timeline-item {
+            .timeline-item, .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
                 width: 100%;
-                padding-bottom: 2rem; /* 32px */
+                left: 0;
+                padding-left: 3rem;
                 padding-right: 0;
                 text-align: left;
             }
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
+            .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot {
                 left: 0;
-                padding-left: 3rem; /* 48px */
-            }
-            .timeline-item:nth-child(odd) .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 0;
-                transform: translateX(0);
+                transform: translateX(-50%);
+                margin-left: 0.75rem;
+                right: auto;
             }
         }
         .card, .skill-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover, .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2), 0 6px 6px rgba(79, 70, 229, 0.15);
         }
-        .card-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card-list li, .mindset-list li {
+        .card-list li {
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 0.5rem;
@@ -104,21 +123,93 @@
             content: '•';
             position: absolute;
             left: 0.5rem;
-            color: #818cf8; /* Indigo-300 */
-        }
-        .mindset-list, .value-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .mindset-list li i, .value-list li i {
-            color: #34d399; /* Emerald-400 */
+            color: #818cf8;
         }
         .case-study-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
-            background-color: #1f2937; /* Gray-800 */
+            transition: max-height 0.5s ease-in-out;
+            background-color: #1f2937;
             border-radius: 0 0 0.75rem 0.75rem;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4f46e5;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        #back-to-top.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .animated-gradient {
+            background-size: 200% 200%;
+            animation: gradient-animation 10s ease infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .skill-card {
+            position: relative;
+        }
+        .skill-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            width: max-content;
+            max-width: 200px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            margin-bottom: 0.5rem;
+            pointer-events: none;
+            z-index: 20;
+        }
+        .skill-card:hover .skill-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .icon-bounce:hover {
+            animation: bounce 0.6s ease;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
         }
     </style>
 </head>
@@ -126,66 +217,109 @@
 
     <div id="resume-container" class="container mx-auto px-4 py-12 md:py-20">
         <!-- Header Section -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 fade-in-section">
             <img src="https://i.ibb.co/r2nfd03z/Whats-App-Image-2025-04-13-at-1-51-08-AM.jpg" alt="Raja Koppula" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-indigo-500 shadow-lg">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500 animated-gradient">
                 Raja Koppula
             </h1>
             <p class="mt-2 text-lg md:text-xl text-gray-300">SEO & Growth Strategist | 13+ Years Building SaaS, Digital Products, Affiliate Brands, & Lead Systems</p>
-             <div class="mt-6 flex justify-center items-center flex-wrap gap-4 md:gap-6 text-gray-400">
-    <span><i class="fas fa-map-marker-alt mr-2"></i>India</span>
-    <span><i class="fas fa-phone-alt mr-2"></i>+91 9700336346</span>
-    <a href="mailto:rajakoppula227@yahoo.com" class="hover:text-indigo-400 transition-colors"><i class="fas fa-envelope mr-2"></i>Email</a>
-    <a href="https://www.linkedin.com/in/rajakoppula/" target="_blank" class="hover:text-indigo-400 transition-colors"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
-    <button id="download-btn" onclick="downloadPDF()" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors inline-flex items-center">
-        <i class="fas fa-download mr-2"></i>Download PDF
-    </button>
-</div>
+            <div class="mt-6 flex justify-center items-center flex-wrap gap-4 md:gap-6 text-gray-400">
+                <span><i class="fas fa-map-marker-alt mr-2"></i>India</span>
+                <span><i class="fas fa-phone-alt mr-2"></i>+91 9700336346</span>
+                <a href="mailto:rajakoppula227@yahoo.com" class="hover:text-indigo-400 transition-colors icon-bounce"><i class="fas fa-envelope mr-2"></i>Email</a>
+                <a href="https://www.linkedin.com/in/rajakoppula/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors icon-bounce"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+                <button id="download-btn" onclick="downloadPDF()" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors inline-flex items-center">
+                    <i class="fas fa-download mr-2"></i>Download PDF
+                </button>
+            </div>
         </div>
         
         <!-- Professional Summary -->
-        <div class="mb-16 max-w-4xl mx-auto text-center">
-             <h2 class="text-3xl font-bold mb-4">Professional Summary</h2>
-             <p class="text-gray-300 leading-relaxed">
-                I'm a product-driven SEO and growth builder with 13 years of entrepreneurial experience. I don’t just rank websites I architect growth systems that feed LLMs, create real visibility, and build a lasting presence in search. I’ve built and scaled affiliate brands, SaaS tools, and lead-gen systems from zero to six figures. I thrive in ambiguity, love building from scratch, and am looking for an equity-based role in a startup building for the future.
-             </p>
+        <div class="mb-16 max-w-4xl mx-auto text-center fade-in-section">
+            <h2 class="text-3xl font-bold mb-4">Professional Summary</h2>
+            <p class="text-gray-300 leading-relaxed">
+                I'm a product-driven SEO and growth builder with 13 years of entrepreneurial experience. I don’t just rank websites; I architect growth systems that feed LLMs, create real visibility, and build a lasting presence in search. I’ve built and scaled affiliate brands, SaaS tools, and lead-gen systems from zero to six figures. I thrive in ambiguity, love building from scratch, and am looking for an equity-based role in a startup building for the future.
+            </p>
         </div>
         
-        <!-- Key Skills -->
-        <div class="mb-16 max-w-5xl mx-auto">
+        <!-- Key Skills with Interactive Tooltips -->
+        <div class="mb-16 max-w-5xl mx-auto fade-in-section">
             <h2 class="text-3xl font-bold text-center mb-8">Key Skills</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-brain text-3xl text-indigo-400"></i><p>LLM-Oriented SEO</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-robot text-3xl text-indigo-400"></i><p>Generative AI Optimization</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-sitemap text-3xl text-indigo-400"></i><p>Content Architecture</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-rocket text-3xl text-indigo-400"></i><p>SaaS Strategy & Launch</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-bullhorn text-3xl text-indigo-400"></i><p>Affiliate Marketing</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-code text-3xl text-indigo-400"></i><p>Technical SEO</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-filter text-3xl text-indigo-400"></i><p>Lead Generation</p></div>
-                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2"><i class="fas fa-chart-line text-3xl text-indigo-400"></i><p>Growth Hacking</p></div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-brain text-3xl text-indigo-400"></i><p>LLM-Oriented SEO</p>
+                    <div class="skill-tooltip">Optimizing content to be a primary source for AI models and answer engines.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-robot text-3xl text-indigo-400"></i><p>Generative AI Optimization</p>
+                    <div class="skill-tooltip">Ensuring visibility and accuracy in AI-generated search results (SGE, Gemini).</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-sitemap text-3xl text-indigo-400"></i><p>Content Architecture</p>
+                    <div class="skill-tooltip">Designing scalable content systems that dominate niches and drive authority.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-rocket text-3xl text-indigo-400"></i><p>SaaS Strategy & Launch</p>
+                    <div class="skill-tooltip">From MVP to market, developing and executing go-to-market growth plans.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-bullhorn text-3xl text-indigo-400"></i><p>Affiliate Marketing</p>
+                    <div class="skill-tooltip">Building and scaling profitable affiliate brands from the ground up.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-code text-3xl text-indigo-400"></i><p>Technical SEO</p>
+                    <div class="skill-tooltip">Mastery of crawlers, structured data, and site performance for optimal ranking.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-filter text-3xl text-indigo-400"></i><p>Lead Generation</p>
+                    <div class="skill-tooltip">Creating automated systems that deliver consistent, high-quality leads.</div>
+                </div>
+                <div class="skill-card bg-gray-800 p-4 rounded-lg flex flex-col items-center justify-center space-y-2">
+                    <i class="fas fa-chart-line text-3xl text-indigo-400"></i><p>Growth Hacking</p>
+                    <div class="skill-tooltip">Identifying and exploiting unconventional strategies for rapid growth.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVISED: How I Build Section -->
+        <div class="mb-16 max-w-4xl mx-auto text-center fade-in-section">
+            <h2 class="text-3xl font-bold mb-8">How I Build</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="font-bold text-lg text-white mb-2 flex items-center"><i class="fas fa-seedling mr-3 text-green-400"></i>I Build to Last</h3>
+                    <p class="text-gray-400">Instead of chasing short-term algorithm tricks, I focus on creating sustainable systems that deliver value and drive growth for years, not just quarters.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="font-bold text-lg text-white mb-2 flex items-center"><i class="fas fa-bolt mr-3 text-yellow-400"></i>Execution Over Everything</h3>
+                    <p class="text-gray-400">Ideas are cheap. I'd rather ship a good plan today than wait for a perfect one tomorrow. I build, test, and learn in the real world, not on whiteboards.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="font-bold text-lg text-white mb-2 flex items-center"><i class="fas fa-chart-bar mr-3 text-blue-400"></i>Data Tells the Story</h3>
+                    <p class="text-gray-400">My strategies are guided by what the numbers show, not by assumptions. This lets me spot real opportunities and make decisions with confidence.</p>
+                </div>
             </div>
         </div>
 
         <!-- The Value I Deliver -->
-        <div class="mb-16 max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg border border-gray-700 p-8">
+        <div class="mb-16 max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg border border-gray-700 p-8 fade-in-section">
             <h2 class="text-3xl font-bold text-center mb-6">What I Bring to the Table</h2>
-            <ul class="value-list space-y-4 text-gray-300 text-lg">
+            <ul class="space-y-4 text-gray-300 text-lg">
                 <li class="flex items-start">
-                    <i class="fas fa-cogs mr-4 mt-1 text-2xl"></i>
+                    <i class="fas fa-cogs mr-4 mt-1 text-2xl text-indigo-400"></i>
                     <div>
                         <h3 class="font-bold text-white">Full-Stack Execution</h3>
                         <p class="text-gray-400">I don't just write strategy docs; I build the systems, write the code, and create the content to make it happen. You get a strategist and a builder in one.</p>
                     </div>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-dollar-sign mr-4 mt-1 text-2xl"></i>
+                    <i class="fas fa-dollar-sign mr-4 mt-1 text-2xl text-green-400"></i>
                     <div>
                         <h3 class="font-bold text-white">A Proven Revenue Record</h3>
                         <p class="text-gray-400">I have a 13-year history of turning ideas into profitable digital assets, from affiliate sites to six-figure lead-generation engines.</p>
                     </div>
                 </li>
                  <li class="flex items-start">
-                    <i class="fas fa-infinity mr-4 mt-1 text-2xl"></i>
+                    <i class="fas fa-infinity mr-4 mt-1 text-2xl text-purple-400"></i>
                     <div>
                         <h3 class="font-bold text-white">A Focus on the Future</h3>
                         <p class="text-gray-400">While others chase today's SEO tricks, I build systems for tomorrow's AI-driven search, ensuring long-term relevance and growth.</p>
@@ -195,8 +329,8 @@
         </div>
 
         <!-- Project Timeline Header -->
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-400 to-purple-500">
+        <div class="text-center mb-16 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 animated-gradient">
                 A 13-Year Playbook of Digital Execution
             </h2>
             <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
@@ -206,21 +340,19 @@
 
         <!-- Timeline Section -->
         <div class="relative">
-            <!-- The vertical line -->
             <div class="timeline-line"></div>
-
-            <!-- Timeline Item 1: TheTorrentSearch.org -->
-            <div class="timeline-item">
+            <!-- All timeline items remain the same -->
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2012</p>
-                    <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-search mr-3 text-indigo-400"></i>TheTorrentSearch.org</h3>
+                    <a href="https://web.archive.org/web/20121103113900/http://thetorrentsearch.org/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-search mr-3 text-indigo-400"></i>TheTorrentSearch.org</h3>
+                    </a>
                     <p class="text-gray-400 mt-2">Early torrent metasearch, scaled via viral growth.</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 2: Searchlly.com -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2013</p>
@@ -228,9 +360,7 @@
                     <p class="text-gray-400 mt-2">Local vertical search engine (like JustDial).</p>
                 </div>
             </div>
-            
-            <!-- Timeline Item 3: Free-wallpapers.org -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2013</p>
@@ -238,9 +368,7 @@
                     <p class="text-gray-400 mt-2">Niche blog; scaled to 100K+ visits/month.</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 4: Affiliate Hustle -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2013–16</p>
@@ -248,9 +376,7 @@
                     <p class="text-gray-400 mt-2">Generated $100K+ promoting Hostinger, iPage, etc.</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 5: Multimedia Search -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2014</p>
@@ -258,53 +384,101 @@
                     <p class="text-gray-400 mt-2">Multimedia content search portals.</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 6: Melolz.com -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
+                <div class="timeline-dot"></div>
+                <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <p class="text-sm text-indigo-400 font-semibold">2014-2016</p>
+                     <a href="https://web.archive.org/web/20140720170952/http://www.adnetworksonline.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-ad mr-3 text-indigo-400"></i>AdNetworksOnline.com</h3>
+                    </a>
+                    <p class="text-gray-400 mt-2">An online ad network directory and reviews portal.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2015</p>
-                    <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-fire mr-3 text-indigo-400"></i>Melolz.com</h3>
+                    <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-fire mr-3 text-indigo-400"></i>Melolz.com</h3>
                     <p class="text-gray-400 mt-2">Meme/joke viral site early days of “content virality.”</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 7: JobNews.today -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
+                <div class="timeline-dot"></div>
+                <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <p class="text-sm text-indigo-400 font-semibold">2015-2017</p>
+                     <a href="https://web.archive.org/web/20160218165243/http://www.liveinfographic.com/user/raja/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-palette mr-3 text-indigo-400"></i>LiveInfographic.com</h3>
+                    </a>
+                    <p class="text-gray-400 mt-2">Pinterest-style site for infographics & educational content.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
                     <p class="text-sm text-indigo-400 font-semibold">2017</p>
-                    <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-briefcase mr-3 text-indigo-400"></i>JobNews.today</h3>
+                    <a href="https://web.archive.org/web/20181225010445/https://jobnews.today/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-briefcase mr-3 text-indigo-400"></i>JobNews.today</h3>
+                    </a>
                     <p class="text-gray-400 mt-2">Aggregated job data and alerts across India.</p>
                 </div>
             </div>
-
-            <!-- Timeline Item 8: B2B LeadGen System (Interactive) -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
+                <div class="timeline-dot"></div>
+                <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+                    <p class="text-sm text-indigo-400 font-semibold">2017</p>
+                     <a href="https://web.archive.org/web/20170903141128/https://nearby.town/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                        <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-store mr-3 text-indigo-400"></i>Nearby.town</h3>
+                    </a>
+                    <p class="text-gray-400 mt-2">A local discovery platform linking services like Yelp & Square.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="bg-gray-800 rounded-xl shadow-lg border border-gray-700">
-                    <div class="card p-6 cursor-pointer" onclick="toggleCaseStudy('case-study-1')">
-                        <p class="text-sm text-indigo-400 font-semibold">2019-Present</p>
-                        <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-bullseye mr-3 text-indigo-400"></i>B2B LeadGen System (NDA)</h3>
-                        <p class="text-gray-400 mt-2">Built an organic + outbound pipeline for B2B lead acquisition.</p>
-                        <p class="text-sm text-green-300 mt-3 font-bold border-t border-gray-700 pt-3"><i class="fas fa-trophy mr-2 text-yellow-400"></i>Result: $400K+ revenue via self-built organic systems.</p>
-                        <span id="read-more-1" class="text-indigo-400 text-sm mt-3 inline-block">Click to see case study <i class="fas fa-chevron-down ml-1"></i></span>
+                    <div class="card p-6 cursor-pointer" onclick="toggleCaseStudy('case-study-2', 'read-more-2')">
+                        <p class="text-sm text-indigo-400 font-semibold">2017-2018</p>
+                        <a href="https://web.archive.org/web/20181129174209/https://feedbacks.today/en" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                            <h3 class="text-xl font-bold mt-1 flex items-center justify-end"><i class="fas fa-comments mr-3 text-indigo-400"></i>Feedbacks.today</h3>
+                        </a>
+                        <p class="text-gray-400 mt-2">A platform for honest feedback from coworkers & friends.</p>
+                        <p class="text-sm text-yellow-300 mt-3 font-bold border-t border-gray-700 pt-3"><i class="fas fa-star mr-2 text-yellow-400"></i>Result: Gained huge popularity before being sold.</p>
+                        <span id="read-more-2" class="text-indigo-400 text-sm mt-3 inline-block">Click to see the story <i class="fas fa-chevron-down ml-1 transition-transform duration-300"></i></span>
                     </div>
-                    <div id="case-study-1" class="case-study-details text-left">
+                    <div id="case-study-2" class="case-study-details text-left">
                         <div class="p-6">
-                            <h4 class="font-bold text-lg text-white mb-2">Mini Case Study</h4>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start"><strong class="w-24 text-gray-400">Challenge:</strong><span>Generate high-quality B2B leads with a minimal budget.</span></li>
-                                <li class="flex items-start"><strong class="w-24 text-gray-400">Solution:</strong><span>Architected a programmatic SEO system to target long-tail keywords and built an automated outbound funnel.</span></li>
-                                <li class="flex items-start"><strong class="w-24 text-gray-400">Outcome:</strong><span>Generated over $400K in revenue, proving the system's effectiveness and scalability.</span></li>
+                            <h4 class="font-bold text-lg text-white mb-2">The Story</h4>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Concept:</strong><span>A way to get honest feedback to improve at work and in friendships.</span></li>
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Journey:</strong><span>The platform quickly gained popularity, showing a strong market need for genuine feedback channels.</span></li>
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Outcome:</strong><span>Despite its success, the project was sold due to challenges in maintaining and scaling the platform.</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Timeline Item 9: Modern SEO & LLM -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
+                <div class="timeline-dot"></div>
+                <div class="bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                    <div class="card p-6 cursor-pointer" onclick="toggleCaseStudy('case-study-1', 'read-more-1')">
+                        <p class="text-sm text-indigo-400 font-semibold">2019-Present</p>
+                        <h3 class="text-xl font-bold mt-1 flex items-center"><i class="fas fa-bullseye mr-3 text-indigo-400"></i>B2B LeadGen System (NDA)</h3>
+                        <p class="text-gray-400 mt-2">Built an organic + outbound pipeline for B2B lead acquisition.</p>
+                        <p class="text-sm text-green-300 mt-3 font-bold border-t border-gray-700 pt-3"><i class="fas fa-trophy mr-2 text-yellow-400"></i>Result: $400K+ revenue via self-built organic systems.</p>
+                        <span id="read-more-1" class="text-indigo-400 text-sm mt-3 inline-block">Click to see case study <i class="fas fa-chevron-down ml-1 transition-transform duration-300"></i></span>
+                    </div>
+                    <div id="case-study-1" class="case-study-details text-left">
+                        <div class="p-6">
+                            <h4 class="font-bold text-lg text-white mb-2">Mini Case Study</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Challenge:</strong><span>Generate high-quality B2B leads with a minimal budget.</span></li>
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Solution:</strong><span>Architected a programmatic SEO system to target long-tail keywords and built an automated outbound funnel.</span></li>
+                                <li class="flex items-start"><strong class="w-24 text-gray-400 shrink-0">Outcome:</strong><span>Generated over $400K in revenue, proving the system's effectiveness and scalability.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gradient-to-br from-indigo-700 to-purple-800 p-6 rounded-xl shadow-lg border border-indigo-500">
                     <p class="text-sm text-purple-300 font-semibold">2022–Now</p>
@@ -316,9 +490,7 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Timeline Item 10: Crypto / Trading Bots -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gradient-to-br from-indigo-700 to-purple-800 p-6 rounded-xl shadow-lg border border-indigo-500">
                     <p class="text-sm text-purple-300 font-semibold">2024–Now</p>
@@ -330,9 +502,7 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Timeline Item 11: LLM-Aware SEO Plugin -->
-            <div class="timeline-item">
+            <div class="timeline-item fade-in-section">
                 <div class="timeline-dot"></div>
                 <div class="card bg-gradient-to-br from-indigo-700 to-purple-800 p-6 rounded-xl shadow-lg border border-indigo-500">
                     <p class="text-sm text-purple-300 font-semibold">2024–Now</p>
@@ -344,56 +514,95 @@
                     </ul>
                 </div>
             </div>
-
         </div>
 
         <!-- Closing Statement -->
-        <div class="mt-20 text-center">
+        <div class="mt-20 text-center fade-in-section">
             <h2 class="text-3xl md:text-4xl font-bold text-white">Let's Build Something Great Together.</h2>
             <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
                 I'm looking for a serious, equity-based partnership with a team that has a big vision. If you're ready to build an unbeatable growth engine, we should talk.
             </p>
             <div class="mt-8 flex justify-center items-center space-x-6">
-     <a href="https://www.linkedin.com/in/rajakoppula/" target="_blank" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors inline-flex items-center text-lg"><i class="fab fa-linkedin mr-3"></i>Connect on LinkedIn</a>
-    <a href="mailto:rajakoppula227@yahoo.com" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors inline-flex items-center text-lg"><i class="fas fa-envelope mr-3"></i>Send an Email</a>
-</div>
+                <a href="https://www.linkedin.com/in/rajakoppula/" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors inline-flex items-center text-lg icon-bounce"><i class="fab fa-linkedin mr-3"></i>Connect on LinkedIn</a>
+                <a href="mailto:rajakoppula227@yahoo.com" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors inline-flex items-center text-lg icon-bounce"><i class="fas fa-envelope mr-3"></i>Send an Email</a>
+            </div>
         </div>
-
     </div>
+
+    <!-- Back to Top Button -->
+    <a id="back-to-top" href="#top" class="hidden">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
         function downloadPDF() {
-            const button = document.getElementById('download-btn');
-            button.style.display = 'none'; // Hide the button
+            const downloadBtn = document.getElementById('download-btn');
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            downloadBtn.style.display = 'none';
+            backToTopBtn.classList.remove('show');
 
             const element = document.getElementById('resume-container');
             const opt = {
-              margin:       [0.5, 0.2, 0.5, 0.2], // top, left, bottom, right
-              filename:     'Raja_Koppula_Resume.pdf',
-              image:        { type: 'jpeg', quality: 0.98 },
-              html2canvas:  { scale: 2, useCORS: true },
-              jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                margin:       [0.5, 0.2, 0.5, 0.2],
+                filename:     'Raja_Koppula_Resume.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
-                button.style.display = 'inline-flex'; // Show the button again
+                downloadBtn.style.display = 'inline-flex'; 
             });
         }
 
-        function toggleCaseStudy(caseStudyId) {
+        function toggleCaseStudy(caseStudyId, readMoreId) {
             const details = document.getElementById(caseStudyId);
-            const readMore = document.getElementById('read-more-1');
+            const readMore = document.getElementById(readMoreId);
             const icon = readMore.querySelector('i');
 
             if (details.style.maxHeight) {
                 details.style.maxHeight = null;
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
+                icon.style.transform = 'rotate(0deg)';
             } else {
                 details.style.maxHeight = details.scrollHeight + "px";
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
+                icon.style.transform = 'rotate(180deg)';
             }
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
