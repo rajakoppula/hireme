@@ -52,13 +52,13 @@ If you’re building something ambitious and need someone who’s comfortable wi
 
 ## What I Bring to the Table
 
-- 🔧 **Full-Stack Execution** – From strategy to code to content.  
-- 💰 **A Proven Revenue Record** – 13+ years turning ideas into profitable digital assets.  
-- ♾️ **A Focus on the Future** – Building for tomorrow’s AI-driven search.  
+- **Full-Stack Execution** – From strategy to code to content.  
+- **A Proven Revenue Record** – 13+ years turning ideas into profitable digital assets.  
+- **A Focus on the Future** – Building for tomorrow’s AI-driven search.  
 
 ---
 
-### Let's Build Something Great Together 🚀
+### Let's Build Something Great Together
 
 I'm looking for a serious partnership with a team that has a big vision. If you're ready to build an unbeatable growth engine, we should talk.
 
